@@ -102,7 +102,8 @@ def main():
 	l2 = [np.log10(50),4]
 
 	marker = [("X","X"),("o","o"),("o","X"),("o","o")]
-	color = plt.rcParams['axes.prop_cycle'].by_key()['color'][:3]
+	color = plt.rcParams['axes.prop_cycle'].by_key()['color'][:4]
+	color[0]=color[1]
 
 	fig = plt.figure(figsize = (8,8))
 
@@ -115,7 +116,7 @@ def main():
 			Z = compute_Z(X,t2,tc,Y,N,m)
 			ax = fig.add_subplot(2,2,idx+1, projection = '3d')
 
-			draw_boundary(X,Y,Z,ax,N,m,t1,t2,l1[idxt],l2,marker[idx],color[2-idxt])
+			draw_boundary(X,Y,Z,ax,N,m,t1,t2,l1[idxt],l2,marker[idx],color[3-2*idxt-idxp])
 
 			# Title for columns
 			ax.set_title("(N,m) = (%d,%d); $\\tau_2$ = %.1f" % (N,m,t2),fontsize = 10)
